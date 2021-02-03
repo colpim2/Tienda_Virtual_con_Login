@@ -6,6 +6,39 @@ import java.util.Scanner;
 
 public class Prueba {
     public static void main(String[] args) {
+        int opcion;
+        do{
+            System.out.println("========= NombreTienda =========");
+            System.out.println("Bienvenido. Por favor, selecciona la opción que desea ejecutar");
+            System.out.println("1. Iniciar sesión\n2.Registrarse\n3.Salir del programa\nOpción: ");
+            Scanner teclado = new Scanner(System.in);
+            opcion = teclado.nextInt();
+            switch(opcion){
+                case 1:
+                    System.out.println("\n\n");
+                    break;
+
+                case 2:
+                    System.out.println("======= REGISTRO =======");
+                    System.out.print("Nombre: ");
+                    String nombre = teclado.nextLine();
+                    System.out.println("DIRECCION");
+                    System.out.print("\tCalle: ");
+                    String calle = teclado.nextLine();
+                    System.out.print("\tNo. Exterior: ");
+                    int noExterior = teclado.nextInt();
+                    System.out.print("\tNo. Interior: ");
+                    int noInterior = teclado.nextInt();
+                    System.out.println("DATOS DE PAGO");
+                    System.out.println("no. Tarjeta: ");
+                    long noTarjeta = teclado.nextLong();
+                    System.out.println("CVV: ");
+                    int cvv = teclado.nextInt();
+                    System.out.println("Procesando datos. Un momento por favor...");
+
+            }
+
+
         /** Se crea al usuario y administrador involucrados en la prueba */
         Administradores admin = new Administradores("Juan Carlos",123);
         UsuarioNormal usuario = new UsuarioNormal();
