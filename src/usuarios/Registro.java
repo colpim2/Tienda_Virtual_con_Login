@@ -31,12 +31,14 @@ public class Registro {
     }
 
     public void guardarInfo(){
-        File directorioUsers = new File("./usuarios/UsersInfo");
+        File directorioUsers = new File("./src/usuarios/UsersInfo");
         if(!directorioUsers.exists()) {
-            if(directorioUsers.mkdir()){
+            if (directorioUsers.mkdir()) {
                 System.out.println("Directorio creado correctamente.");
             }
         }
+        else{
+            System.out.println("No se pudo crear el directorio");
+        }
     }
-
 }
