@@ -30,15 +30,48 @@ public class Registro {
         cvv = teclado.nextInt();
     }
 
-    public void guardarInfo(){
+    public int verificarRutas(){
         File directorioUsers = new File("./src/usuarios/UsersInfo");
+        File archivoUsuarios = new File("./src/usuarios/UsersInfo/DataBase");
         if(!directorioUsers.exists()) {
             if (directorioUsers.mkdir()) {
-                System.out.println("Directorio creado correctamente.");
+                try {
+                    if (archivoUsuarios.createNewFile())
+                        System.out.println("Directorio y archivo creados correctamente");
+                }catch (IOException ioe) {
+                    System.out.println("ERROR: No se pudo crear el archivo");
+                    return 0;
+                }
+            }
+            else{
+                System.out.println("ERROR: No se pudo crear el directorio");
+                return 0;
             }
         }
         else{
-            System.out.println("No se pudo crear el directorio");
+            if(!archivoUsuarios.exists()){
+                try{
+                    if(archivoUsuarios.createNewFile()){
+                        System.out.println("Archivo creado correctamente");
+                    }
+                }catch(IOException ioe){
+                    System.out.println("ERROR: No se pudo crear el archivo");
+                    return 0;
+                }
+            }
+            return 1;
         }
+        return 1;
     }
+
+    public int guardarInfo(){
+        if(verificarRutas() != 0){
+            File archivoUsuarios = new File("./src/usuarios/UsersInfo/DataBase");
+        }
+        else{
+            return 0;
+        }
+        return 1;
+    }
+
 }
