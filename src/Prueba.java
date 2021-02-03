@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class Prueba {
     public static void main(String[] args) {
         /** Se crea al usuario y administrador involucrados en la prueba */
-        Administradores admin = new Administradores("Juan",123);
+        Administradores admin = new Administradores("Juan Carlos",123);
         UsuarioNormal usuario = new UsuarioNormal();
 
         /** Simulación */
