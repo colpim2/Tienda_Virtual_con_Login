@@ -1,4 +1,4 @@
-package com.poo.practica6.supermercado.departamentos.zapatos;
+package supermercado.departamentos.zapatos;
 
 public class Tenis extends Calzado {
     private boolean agujetas;

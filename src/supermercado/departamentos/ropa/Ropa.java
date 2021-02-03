@@ -1,6 +1,6 @@
-package com.poo.practica6.supermercado.departamentos.ropa;
+package supermercado.departamentos.ropa;
 
-import com.poo.practica6.supermercado.departamentos.Productos;
+import supermercado.departamentos.Productos;
 
 /**
  * La clase Ropa es una clase abstracta ya que no se puede tener un objeto tipo ropa, sin embargo, a partir de esta se

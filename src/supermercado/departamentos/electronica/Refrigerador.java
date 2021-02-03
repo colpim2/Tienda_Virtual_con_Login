@@ -1,4 +1,4 @@
-package com.poo.practica6.supermercado.departamentos.electronica;
+package supermercado.departamentos.electronica;
 
 public class Refrigerador extends Electrodomestico {
     private int numeroAnaqueles;

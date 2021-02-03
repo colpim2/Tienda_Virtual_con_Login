@@ -1,9 +1,9 @@
-package com.poo.practica6.supermercado.departamentos;
+package supermercado.departamentos;
 
-import com.poo.practica6.supermercado.departamentos.*;
-import com.poo.practica6.supermercado.departamentos.electronica.*;
-import com.poo.practica6.supermercado.departamentos.papeleria.*;
-import com.poo.practica6.supermercado.departamentos.viveres.*;
+import supermercado.departamentos.*;
+import supermercado.departamentos.electronica.*;
+import supermercado.departamentos.papeleria.*;
+import supermercado.departamentos.viveres.*;
 
 public class PruebaProductos{
 

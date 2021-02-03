@@ -1,6 +1,6 @@
-package com.poo.practica6.supermercado.departamentos.zapatos;
+package supermercado.departamentos.zapatos;
 
-import com.poo.practica6.supermercado.departamentos.Productos;
+import supermercado.departamentos.Productos;
 
 /**
  * Clase abstracta del calzado, de la que se derivan tipos especificos

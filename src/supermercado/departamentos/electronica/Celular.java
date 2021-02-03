@@ -1,6 +1,6 @@
-package com.poo.practica6.supermercado.departamentos.electronica;
+package supermercado.departamentos.electronica;
 
-import com.poo.practica6.supermercado.departamentos.Productos;
+import supermercado.departamentos.Productos;
 
 /** La clase Celular, al ser un producto de venta en la tienda, debe heredar los métodos y atributos
  * de los Productos. Cada celular cuenta con las características esceciales que cualquier comprador

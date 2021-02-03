@@ -1,6 +1,6 @@
-package com.poo.practica6.supermercado.departamentos.electronica;
+package supermercado.departamentos.electronica;
 
-import com.poo.practica6.supermercado.departamentos.Productos;
+import supermercado.departamentos.Productos;
 
 /**La clase electrodomestico (un producto de la tienda y por ende, una herencia de ésta)
  * abarca una gamma amplia de artículos, por ello que fue declarada como una clase abstracta,

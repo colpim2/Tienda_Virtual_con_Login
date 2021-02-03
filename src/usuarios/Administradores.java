@@ -1,4 +1,4 @@
-package com.poo.practica6.usuarios;
+package usuarios;
 
 import java.util.List;
 

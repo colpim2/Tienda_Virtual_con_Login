@@ -1,4 +1,4 @@
-package com.poo.practica6.formas_de_entrega;
+package formas_de_entrega;
 
 import java.util.Scanner;
 

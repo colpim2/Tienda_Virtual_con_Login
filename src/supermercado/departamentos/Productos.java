@@ -1,4 +1,4 @@
-package com.poo.practica6.supermercado.departamentos;
+package supermercado.departamentos;
 
 /**Todas las tiendas estan formadas por productos que la gente puede adquirir. Pero productos es
  * un concepto muy amplio y por ello, debe ser manejado como una clase abstracta. A partir de ella

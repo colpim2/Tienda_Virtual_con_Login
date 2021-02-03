@@ -1,7 +1,6 @@
-package com.poo.practica6;
 
-import com.poo.practica6.usuarios.*;
-import com.poo.practica6.formas_de_entrega.*;
+import usuarios.*;
+import formas_de_entrega.*;
 
 import java.util.Scanner;
 

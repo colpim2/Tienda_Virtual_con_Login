@@ -1,4 +1,4 @@
-package com.poo.practica6.supermercado.departamentos.viveres;
+package supermercado.departamentos.viveres;
 
 /**
  * Clase abstracta que modela las caracteristicas generales de la fruta, de esta se derivan frutas más especificas

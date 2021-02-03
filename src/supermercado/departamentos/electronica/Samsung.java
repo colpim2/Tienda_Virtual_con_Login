@@ -1,7 +1,7 @@
-package com.poo.practica6.supermercado.departamentos.electronica;
+package supermercado.departamentos.electronica;
 
-import com.poo.practica6.supermercado.departamentos.Productos;
-import com.poo.practica6.supermercado.departamentos.electronica.Celular;
+import supermercado.departamentos.Productos;
+import supermercado.departamentos.electronica.Celular;
 
 
 public class Samsung extends Celular{

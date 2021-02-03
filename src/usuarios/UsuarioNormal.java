@@ -1,9 +1,9 @@
-package com.poo.practica6.usuarios;
-import com.poo.practica6.supermercado.departamentos.electronica.*;
-import com.poo.practica6.supermercado.departamentos.papeleria.*;
-import com.poo.practica6.supermercado.departamentos.viveres.*;
-import com.poo.practica6.supermercado.departamentos.ropa.*;
-import com.poo.practica6.supermercado.departamentos.zapatos.*;
+package usuarios;
+import supermercado.departamentos.electronica.*;
+import supermercado.departamentos.papeleria.*;
+import supermercado.departamentos.viveres.*;
+import supermercado.departamentos.ropa.*;
+import supermercado.departamentos.zapatos.*;
 
 import java.util.ArrayList;
 import java.util.List;

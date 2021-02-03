@@ -1,4 +1,4 @@
-package com.poo.practica6.supermercado.departamentos.electronica;
+package supermercado.departamentos.electronica;
 
 public class Huawei extends Celular {
     private boolean resistenciaAgua;

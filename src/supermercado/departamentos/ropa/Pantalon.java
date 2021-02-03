@@ -1,4 +1,4 @@
-package com.poo.practica6.supermercado.departamentos.ropa;
+package supermercado.departamentos.ropa;
 
 public class Pantalon extends Ropa {
     private String tipo;

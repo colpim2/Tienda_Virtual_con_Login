@@ -1,6 +1,6 @@
-package com.poo.practica6.supermercado.departamentos.papeleria;
+package supermercado.departamentos.papeleria;
 
-import com.poo.practica6.supermercado.departamentos.Productos;
+import supermercado.departamentos.Productos;
 
 /** Clase hojas que hereda de la clase Productos */
 public class Hojas extends Productos{

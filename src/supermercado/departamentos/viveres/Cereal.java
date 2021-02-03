@@ -1,4 +1,4 @@
-package com.poo.practica6.supermercado.departamentos.viveres;
+package supermercado.departamentos.viveres;
 
 public class Cereal extends Viveres {
     private float contenidoNeto;

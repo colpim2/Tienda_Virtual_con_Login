@@ -1,6 +1,6 @@
-package com.poo.practica6.supermercado.departamentos.papeleria;
+package supermercado.departamentos.papeleria;
 
-import com.poo.practica6.supermercado.departamentos.Productos;
+import supermercado.departamentos.Productos;
 
 /**
  * Clase Cuadernos que hereda de Productos

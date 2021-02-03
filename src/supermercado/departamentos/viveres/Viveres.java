@@ -1,6 +1,6 @@
-package com.poo.practica6.supermercado.departamentos.viveres;
+package supermercado.departamentos.viveres;
 
-import com.poo.practica6.supermercado.departamentos.Productos;
+import supermercado.departamentos.Productos;
 
 /**
  * Clase abstracta que modela las caracteristicas generales de los viveres, de esta se derivan otros alimentos más
