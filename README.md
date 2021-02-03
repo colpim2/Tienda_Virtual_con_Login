@@ -1,4 +1,4 @@
-# Zoologico_Virtual
+# Tienda_Virtual_con_Login
 Proyecto, POO Grupo 04, FI UNAM
 
 @Autores:                          No. Cuenta         
