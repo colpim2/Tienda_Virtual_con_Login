@@ -112,7 +112,7 @@ public class UsuarioNormal {
         //Generar excepción propia con el if
         if (CantidadAPagar > 0) {
             System.out.println("Pagando " + CantidadAPagar + " por " + carrito.size() + " productos");
-            this.metodoDePago = new MetodoDePago();
+            this.metodoDePago = new MetodoDePago(this.getNoTarjeta(),this.getCvv());
             if (CantidadAPagar > metodoDePago.getDinero()) {
                 System.out.println("Dinero Insuficiente");
                 return false;

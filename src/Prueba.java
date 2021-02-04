@@ -52,12 +52,12 @@ public class Prueba {
                                 case 1:
                                     long CantidadDeProductos = (usuario.getCarrito()).size();
                                     EnTienda tienda = new EnTienda(CantidadDeProductos);
-                                    tienda.ImprimirRecibo(admin.nombre, usuario.getCarrito(), usuario.getPrecios(), CantidadAPagar);
+                                    tienda.ImprimirRecibo(admin.nombre, usuario.getNombre(), usuario.getCarrito(), usuario.getPrecios(), CantidadAPagar);
                                     tienda.Empaquetar();
                                     break;
                                 case 2:
-                                    ADomicilio domicilio = new ADomicilio();
-                                    domicilio.ImprimirRecibo(admin.nombre,usuario.getCarrito(), usuario.getPrecios(),CantidadAPagar);
+                                    ADomicilio domicilio = new ADomicilio(usuario);
+                                    domicilio.ImprimirRecibo(admin.nombre, usuario.getNombre(),usuario.getCarrito(), usuario.getPrecios(),CantidadAPagar);
                                     System.out.println("Fecha tentativa de entrega: " + domicilio.FechaDeEntrega());
                                     System.out.println(domicilio.PaqueteRecibido());
                                     break;

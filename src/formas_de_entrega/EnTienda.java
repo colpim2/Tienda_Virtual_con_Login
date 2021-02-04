@@ -19,8 +19,8 @@ public class EnTienda {
     }
 
     /** Método para Generar los Archivos y Directorios Necesarios */
-    private int GenerarArchivos(){
-        String pathRecibo = "./recibos/Recibo_Tienda_"+ contador +".txt";
+    private int GenerarArchivos(String cliente){
+        String pathRecibo = "./recibos/Recibo_"+cliente+"_EnTienda_"+ contador +".txt";
 
         File directorioRecibo= new File("./recibos");
         File archivoRecibo = new File(pathRecibo);
@@ -62,8 +62,8 @@ public class EnTienda {
     }
 
     /** Método GuardarRecibo */
-    private void GuardarRecibo(String nombre,List<String> productos,List<Float> precios,float CantidadAPagar){
-        String pathRecibo = "./recibos/Recibo_Tienda_"+ contador +".txt";
+    private void GuardarRecibo(String atendidoPor,String cliente,List<String> productos,List<Float> precios,float CantidadAPagar){
+        String pathRecibo = "./recibos/Recibo_"+cliente+"_EnTienda_"+ contador +".txt";
         File archivoRecibo= new File(pathRecibo);
         try{
             FileWriter archivoOut = new FileWriter(archivoRecibo, false);
@@ -75,8 +75,8 @@ public class EnTienda {
             texto += "\nTotal M.N.$ : " + CantidadAPagar+"\n";
 
             //Información Cliente
-            texto += "\n    CLIENTE: ";
-            texto += "\n\nTOTAL DE ARTICULOS VENDIDOS = " + productos.size()+ "\n  Atendido por: "+ nombre;
+            texto += "\n    CLIENTE: " + cliente;
+            texto += "\n\nTOTAL DE ARTICULOS VENDIDOS = " + productos.size()+ "\n  Atendido por: "+ atendidoPor;
 
             //Fecha actual
             DateTimeFormatter FormatoFecha = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
@@ -93,11 +93,11 @@ public class EnTienda {
     }
 
     /** Método Imprimir Recibo */
-    public void ImprimirRecibo(String nombre,List<String> productos,List<Float> precios,float CantidadAPagar) {
+    public void ImprimirRecibo(String atendidoPor,String cliente,List<String> productos,List<Float> precios,float CantidadAPagar) {
         System.out.println("Generando su recibo ... espere un momento");
-        if (this.GenerarArchivos()!=1){
-            this.GuardarRecibo(nombre,productos,precios,CantidadAPagar);
-            System.out.println("Recibo: Recibo_Tienda_" +contador +".txt generado");
+        if (this.GenerarArchivos(cliente)!=1){
+            this.GuardarRecibo(atendidoPor,cliente,productos,precios,CantidadAPagar);
+            System.out.println("Recibo: Recibo_"+cliente+"_EnTienda_" +contador +".txt generado");
         }
     }
 

@@ -1,31 +1,25 @@
 package formas_de_entrega;
 
+import usuarios.UsuarioNormal;
+
 import java.util.Scanner;
 
 public class Direccion {
     /** Atributos */
-    private long telefono;
     private String calle;
-    private String colonia;
-    private int numeroPostal;
+    private String noExterior;
+    private String noInterior;
 
     /** Método Constructor */
-    public Direccion() {
-        try (Scanner teclado = new Scanner(System.in)) {
-            System.out.print("Direccion\n   Calle: ");
-            this.calle = teclado.nextLine();
-            System.out.print("   Colonia: ");
-            this.colonia = teclado.nextLine();
-            System.out.print("   Numero Postal: ");
-            this.numeroPostal = teclado.nextInt();
-            System.out.print("   Numero Telefonico: ");
-            this.telefono = teclado.nextLong();
-        }
+    public Direccion(UsuarioNormal usuario) {
+            calle = usuario.getCalle();
+            noExterior = usuario.getNoExterior();
+            noInterior = usuario.getNoInterior();
     }
 
     /**  Método Impresion Datos */
     public String ImprimirDireccion() {
-        return "\n   Calle: " + this.getCalle() + "\n   Colonia: " + this.getColonia() + "\n   Codigo Postal: " + this.getNumeroPostal() + "\n   Numero Telefonico: " + this.getNumeroTelefonico();
+        return "\n   Calle: " + this.getCalle() + "\n   No.Exterior: " + this.getNoExterior() + "\n   No.Interior: " + this.getNoInterior();
     }
 
     /** Getters */
@@ -33,16 +27,12 @@ public class Direccion {
         return calle;
     }
 
-    public String getColonia() {
-        return colonia;
+    public String getNoExterior() {
+        return noExterior;
     }
 
-    public int getNumeroPostal() {
-        return numeroPostal;
-    }
-
-    public long getNumeroTelefonico() {
-        return telefono;
+    public String getNoInterior() {
+        return noInterior;
     }
 
 }

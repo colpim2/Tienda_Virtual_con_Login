@@ -1,5 +1,7 @@
 package formas_de_entrega;
 
+import usuarios.UsuarioNormal;
+
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -13,8 +15,8 @@ public class ADomicilio {
     private int contador = 0;
 
     /** Método Constructor */
-    public ADomicilio() {
-        this.direccion = new Direccion();
+    public ADomicilio(UsuarioNormal usuario) {
+        this.direccion = new Direccion(usuario);
         contador += 1;
     }
 
@@ -24,8 +26,8 @@ public class ADomicilio {
     }
 
     /** Método para Generar los Archivos y Directorios Necesarios */
-    private int GenerarArchivos(){
-        String pathRecibo = "./recibos/Recibo_Domicilio_"+ contador +".txt";
+    private int GenerarArchivos(String cliente){
+        String pathRecibo = "./recibos/Recibo_" +cliente + "_ADomicilio_"+ contador +".txt";;
 
         File directorioRecibo= new File("./recibos");
         File archivoRecibo = new File(pathRecibo);
@@ -67,8 +69,8 @@ public class ADomicilio {
     }
 
     /** Método GuardarRecibo */
-    private void GuardarRecibo(String nombre, List<String> productos, List<Float> precios, float CantidadAPagar){
-        String pathRecibo = "./recibos/Recibo_Domicilio_"+ contador +".txt";
+    private void GuardarRecibo(String atendidoPor,String cliente, List<String> productos, List<Float> precios, float CantidadAPagar){
+        String pathRecibo = "./recibos/Recibo_" +cliente + "_ADomicilio_"+ contador +".txt";
         File archivoRecibo= new File(pathRecibo);
         try{
             FileWriter archivoOut = new FileWriter(archivoRecibo, false);
@@ -80,8 +82,8 @@ public class ADomicilio {
             texto += "\nTotal M.N.$ : " + CantidadAPagar+"\n";
 
             //Información Cliente
-            texto += "\n    CLIENTE: ";
-            texto += "\n\nTOTAL DE ARTICULOS VENDIDOS = " + productos.size()+ "\n  Atendido por: "+ nombre;
+            texto += "\n    CLIENTE: "+cliente;
+            texto += "\n\nTOTAL DE ARTICULOS VENDIDOS = " + productos.size()+ "\n  Atendido por: "+ atendidoPor;
 
             //Fecha actual
             DateTimeFormatter FormatoFecha = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
@@ -101,11 +103,11 @@ public class ADomicilio {
     }
 
     /** Método Imprimir Recibo */
-    public void ImprimirRecibo(String nombre,List<String> productos,List<Float> precios,float CantidadAPagar) {
+    public void ImprimirRecibo(String atendidoPor,String cliente,List<String> productos,List<Float> precios,float CantidadAPagar) {
         System.out.println("Generando su recibo ... espere un momento");
-        if (this.GenerarArchivos()!=1){
-            this.GuardarRecibo(nombre,productos,precios,CantidadAPagar);
-            System.out.println("Recibo: Recibo_Domicilio_" +contador +".txt generado");
+        if (this.GenerarArchivos(cliente)!=1){
+            this.GuardarRecibo(atendidoPor,cliente,productos,precios,CantidadAPagar);
+            System.out.println("Recibo: Recibo_" +cliente + "_ADomicilio_" +contador +".txt generado");
         }
     }
 
