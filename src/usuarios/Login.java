@@ -95,10 +95,7 @@ public class Login {
             String line = br.readLine();
             while(line != null){
                 String [] campos = line.split(separador);
-                if(campos[0].equals(correo)){
-                    System.out.println("Usuario ya registrado, puede iniciar sesión");
-                    return true;
-                }
+                if(campos[0].equals(correo)) return true;
                 line = br.readLine();
             }
         }catch(FileNotFoundException fnf){
