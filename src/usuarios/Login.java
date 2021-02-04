@@ -5,6 +5,8 @@ import java.util.Scanner;
 
 public class Login {
     /** Atributos */
+    private String correo;
+    private String contrasena;
     private String nombre;
     private String calle;
     private int noExterior;
@@ -15,19 +17,31 @@ public class Login {
 
     public Login(){
         Scanner teclado = new Scanner(System.in);
-        System.out.print("Nombre: ");
+        System.out.print("Dirrección de correo electrónico: ");
+        correo = teclado.nextLine();
+    }
+
+    public Login(String correo){
+        this.correo = correo;
+    }
+
+    public void guardarDatos(){
+        Scanner teclado = new Scanner(System.in);
+        System.out.print("Password: ");
+        contrasena = teclado.nextLine();
+        System.out.print("DATOS PERSONALES\n\tNombre: ");
         nombre = teclado.nextLine();
-        System.out.println("DIRECCION");
-        System.out.print("\tCalle: ");
+        System.out.println("\tDIRECCION");
+        System.out.print("\t\tCalle: ");
         calle = teclado.nextLine();
-        System.out.print("\tNo. Exterior: ");
+        System.out.print("\t\tNo. Exterior: ");
         noExterior = teclado.nextInt();
-        System.out.print("\tNo. Interior: ");
+        System.out.print("\t\tNo. Interior: ");
         noInterior = teclado.nextInt();
         System.out.println("DATOS DE PAGO");
-        System.out.print("no. Tarjeta: ");
+        System.out.print("\tno. Tarjeta: ");
         noTarjeta = teclado.nextLong();
-        System.out.print("CVV: ");
+        System.out.print("\tCVV: ");
         cvv = teclado.nextInt();
     }
 
@@ -39,7 +53,7 @@ public class Login {
                 try {
                     if (archivoUsuarios.createNewFile()) {
                         FileWriter fw = new FileWriter(archivoUsuarios);
-                        fw.append("Nombre,Calle,No. Exterior,No. Interior,No. Tarjeta,CVV\n");
+                        fw.append("Correo,Password,Nombre,Calle,No. Exterior,No. Interior,No. Tarjeta,CVV\n");
                         fw.flush();
                         fw.close();
                         System.out.println("Directorio y archivo creados correctamente");
@@ -59,7 +73,7 @@ public class Login {
                 try{
                     if(archivoUsuarios.createNewFile()){
                         FileWriter fw = new FileWriter(archivoUsuarios);
-                        fw.append("Nombre,Calle,No. Exterior,No. Interior,No. Tarjeta,CVV\n");
+                        fw.append("Correo,Password,Nombre,Calle,No. Exterior,No. Interior,No. Tarjeta,CVV\n");
                         fw.flush();
                         fw.close();
                         System.out.println("Archivo creado correctamente");
@@ -81,7 +95,7 @@ public class Login {
             String line = br.readLine();
             while(line != null){
                 String [] campos = line.split(separador);
-                if(campos[0] == nombre){
+                if(campos[0].equals(correo)){
                     System.out.println("Usuario ya registrado, puede iniciar sesión");
                     return true;
                 }
@@ -105,12 +119,20 @@ public class Login {
         return false;
     }
 
+    public boolean iniciarSesion(){
+        if(verificarRutas()) {
+            File archivoUsuarios = new File("./src/usuarios/UsersInfo/DataBase.csv");
+            return verificarContenidoArchivo(archivoUsuarios);
+        }
+        return false;
+    }
+
     public boolean guardarInfo(){
         if(verificarRutas()) {
             try {
                 File archivoUsuarios = new File("./src/usuarios/UsersInfo/DataBase.csv");
                 if (!verificarContenidoArchivo(archivoUsuarios)) {
-                    String infoUsuario = nombre + "," + calle + "," + noExterior + "," + noInterior + "," + noTarjeta + "," + cvv + "\n";
+                    String infoUsuario = correo + "," + contrasena + "," + nombre + "," + calle + "," + noExterior + "," + noInterior + "," + noTarjeta + "," + cvv;
                     FileWriter fw = new FileWriter(archivoUsuarios,true);
                     BufferedWriter bw = new BufferedWriter(fw);
                     PrintWriter textoSalida = new PrintWriter(bw);

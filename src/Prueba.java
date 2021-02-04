@@ -7,6 +7,7 @@ import java.util.Scanner;
 public class Prueba {
     public static void main(String[] args) {
         int opcion;
+        String nombre;
         do {
             System.out.println("========= NombreTienda =========");
             System.out.println("Bienvenido. Por favor, selecciona la opción que desea ejecutar");
@@ -15,12 +16,26 @@ public class Prueba {
             opcion = teclado.nextInt();
             switch (opcion) {
                 case 1:
-                    System.out.println("\n\n");
+                    Scanner lector = new Scanner(System.in);
+                    System.out.println("======= INICIO DE SESIÓN =======");
+                    System.out.print("Correo Electrónico: ");
+                    nombre = lector.nextLine();
+                    Login login = new Login(nombre);
+                    if(!login.iniciarSesion()){
+                        System.out.println("Lo sentimos, ocurrió un error al iniciar sesión. Registrese, si no lo ha hecho, o intente nuevamente");
+                        opcion = 4;
+                        break;
+                    }
+                    System.out.println("Bienvenido "+ nombre);
                     break;
-
                 case 2:
                     System.out.println("======= REGISTRO =======");
                     Login registro = new Login();
+                    if(registro.iniciarSesion()){
+                        System.out.println("Usuario ya registrado, por favor, inicie sesión");
+                        break;
+                    }
+                    registro.guardarDatos();
                     if(registro.guardarInfo())
                         System.out.println("Su información ha sido registrada correctamente. Puede iniciar sesión.");
                     else
