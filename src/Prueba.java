@@ -20,8 +20,8 @@ public class Prueba {
 
                 case 2:
                     System.out.println("======= REGISTRO =======");
-                    Registro registro = new Registro();
-                    if(registro.guardarInfo() != 0)
+                    Login registro = new Login();
+                    if(registro.guardarInfo())
                         System.out.println("Su información ha sido registrada correctamente. Puede iniciar sesión.");
                     else
                         System.out.println("Lo sentimos, ocurrió un error durante el proceso, por favor, intente nuevamente :3");
