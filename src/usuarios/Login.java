@@ -9,10 +9,10 @@ public class Login {
     private String contrasena;
     private String nombre;
     private String calle;
-    private int noExterior;
-    private int noInterior;
-    private long noTarjeta;
-    private int cvv;
+    private String noExterior;
+    private String noInterior;
+    private String noTarjeta;
+    private String cvv;
     public static final String separador = ",";
 
     public Login(){
@@ -21,8 +21,9 @@ public class Login {
         correo = teclado.nextLine();
     }
 
-    public Login(String correo){
+    public Login(String correo, String password){
         this.correo = correo;
+        contrasena = password;
     }
 
     public void guardarDatos(){
@@ -35,14 +36,14 @@ public class Login {
         System.out.print("\t\tCalle: ");
         calle = teclado.nextLine();
         System.out.print("\t\tNo. Exterior: ");
-        noExterior = teclado.nextInt();
+        noExterior = teclado.nextLine();
         System.out.print("\t\tNo. Interior: ");
-        noInterior = teclado.nextInt();
+        noInterior = teclado.nextLine();
         System.out.println("DATOS DE PAGO");
         System.out.print("\tno. Tarjeta: ");
-        noTarjeta = teclado.nextLong();
+        noTarjeta = teclado.nextLine();
         System.out.print("\tCVV: ");
-        cvv = teclado.nextInt();
+        cvv = teclado.nextLine();
     }
 
     public boolean verificarRutas(){
@@ -88,7 +89,43 @@ public class Login {
         return true;
     }
 
-    public boolean verificarContenidoArchivo(File rutaArchivo){
+    public boolean verificarLogin(File rutaArchivo){
+        BufferedReader br = null;
+        try{
+            br = new BufferedReader(new FileReader(rutaArchivo));
+            String line = br.readLine();
+            while(line != null) {
+                String[] campos = line.split(separador);
+                if (campos[0].equals(correo) && campos[1].equals(contrasena)){
+                    nombre = campos[2];
+                    calle = campos[3];
+                    noExterior = campos[4];
+                    noInterior = campos[5];
+                    noTarjeta = campos[6];
+                    cvv = campos[7];
+                    return true;
+                }
+                line = br.readLine();
+            }
+        }catch(FileNotFoundException fnf){
+            System.out.println("ERROR: El archivo que se quiere leer no existe");
+            return false;
+        }catch(IOException io){
+            System.out.println("ERROR: No se pudo leer la informacion del archivo");
+            return false;
+        }finally{
+            if(br != null){
+                try {
+                    br.close();
+                } catch(IOException io){
+                    System.out.println("Problemas al cerrar el Buffer de lectura");
+                }
+            }
+        }
+        return false;
+    }
+
+    public boolean verificarRegistro(File rutaArchivo){
         BufferedReader br = null;
         try{
             br = new BufferedReader(new FileReader(rutaArchivo));
@@ -119,7 +156,7 @@ public class Login {
     public boolean iniciarSesion(){
         if(verificarRutas()) {
             File archivoUsuarios = new File("./src/usuarios/UsersInfo/DataBase.csv");
-            return verificarContenidoArchivo(archivoUsuarios);
+            return verificarLogin(archivoUsuarios);
         }
         return false;
     }
@@ -128,7 +165,7 @@ public class Login {
         if(verificarRutas()) {
             try {
                 File archivoUsuarios = new File("./src/usuarios/UsersInfo/DataBase.csv");
-                if (!verificarContenidoArchivo(archivoUsuarios)) {
+                if (!verificarRegistro(archivoUsuarios)) {
                     String infoUsuario = correo + "," + contrasena + "," + nombre + "," + calle + "," + noExterior + "," + noInterior + "," + noTarjeta + "," + cvv;
                     FileWriter fw = new FileWriter(archivoUsuarios,true);
                     BufferedWriter bw = new BufferedWriter(fw);
@@ -145,5 +182,21 @@ public class Login {
         }
         return true;
     }
+
+    String getCorreo(){ return correo; }
+
+    String getContrasena(){ return contrasena; }
+
+    String getNombre(){ return nombre; }
+
+    String getCalle(){ return calle; }
+
+    String getNoExterior(){ return noExterior; }
+
+    String getNoInterior(){ return noInterior; }
+
+    String getNoTarjeta(){ return noTarjeta; }
+
+    String getCvv(){ return cvv; }
 
 }

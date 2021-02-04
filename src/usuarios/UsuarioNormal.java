@@ -11,16 +11,28 @@ import java.util.Scanner;
 
 public class UsuarioNormal {
     /** Atributos */
-    public String nombre;
+    private String correo;
+    private String contrasena;
+    private String nombre;
+    private String calle;
+    private String noExterior;
+    private String noInterior;
+    private String noTarjeta;
+    private String cvv;
     private MetodoDePago metodoDePago;
     private List<String> carrito;
     private List<Float> precios;
 
     /** Método Constructor */
-    public UsuarioNormal() {
-        Scanner teclado = new Scanner(System.in);
-        System.out.print("Bienvenido\nIngrese su nombre: ");
-        this.nombre = teclado.nextLine();
+    public UsuarioNormal(Login login) {
+        correo = login.getCorreo();
+        contrasena = login.getContrasena();
+        nombre = login.getNombre();
+        calle = login.getCalle();
+        noExterior = login.getNoExterior();
+        noInterior = login.getNoInterior();
+        noTarjeta = login.getNoTarjeta();
+        cvv = login.getCvv();
 
         this.carrito = new ArrayList<String>();
         this.precios = new ArrayList<Float>();
@@ -125,6 +137,22 @@ public class UsuarioNormal {
     }
 
     /** Getters */
+    public String getCorreo(){ return correo; }
+
+    public String getContrasena(){ return contrasena; }
+
+    public String getNombre(){ return nombre; }
+
+    public String getCalle(){ return calle; }
+
+    public String getNoExterior(){ return noExterior; }
+
+    public String getNoInterior(){ return noInterior; }
+
+    public String getNoTarjeta(){ return noTarjeta; }
+
+    public String getCvv(){ return cvv; }
+
     public MetodoDePago getMetodoDePago() {
         return metodoDePago;
     }
