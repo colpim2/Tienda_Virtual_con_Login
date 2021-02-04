@@ -25,8 +25,7 @@ public class Direccion {
 
     /**  Método Impresion Datos */
     public String ImprimirDireccion() {
-        String Impresion = "\n   Calle: " + this.getCalle() + "\n   Colonia: " + this.getColonia() + "\n   Codigo Postal: " + this.getNumeroPostal() + "\n   Numero Telefonico: " + this.getNumeroTelefonico();
-        return Impresion;
+        return "\n   Calle: " + this.getCalle() + "\n   Colonia: " + this.getColonia() + "\n   Codigo Postal: " + this.getNumeroPostal() + "\n   Numero Telefonico: " + this.getNumeroTelefonico();
     }
 
     /** Getters */

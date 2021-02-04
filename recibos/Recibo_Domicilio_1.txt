@@ -21,7 +21,7 @@ Total M.N.$ : 30646.3
 
 TOTAL DE ARTICULOS VENDIDOS = 14
   Atendido por: Juan Carlos
-  2021/02/03 20:04:23
+  2021/02/03 20:52:54
 
 DATOS DE ENVIO: 
    Calle: 555
