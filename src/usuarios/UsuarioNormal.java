@@ -97,6 +97,7 @@ public class UsuarioNormal {
 
     /** Método Pagar */
     public boolean Pagar(float CantidadAPagar) {
+        //Generar excepción propia con el if
         if (CantidadAPagar > 0) {
             System.out.println("Pagando " + CantidadAPagar + " por " + carrito.size() + " productos");
             this.metodoDePago = new MetodoDePago();
@@ -111,6 +112,7 @@ public class UsuarioNormal {
 
     /** Método Impresión Elementos En Carrito */
     public void ImprimirElementosCarrito() {
+        //Generar excepción propia si el carrito está vacio
         for (int i = 0; i < carrito.size(); i++)
             System.out.println(carrito.get(i));
     }
