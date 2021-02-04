@@ -1,0 +1,32 @@
+  ==== NombreTienda ====
+----------------------------
+ARTICULO         PRECIO:
+  Cereal -------> 40.1
+  Manzanas -------> 29.9
+  Platanos -------> 16.9
+  Cuadernos -------> 37.4
+  Hojas -------> 113.0
+  Lavadora -------> 7546.0
+  Refrigerador -------> 4124.0
+  IPhone -------> 17289.0
+  Calcetines -------> 150.0
+  Camisa -------> 200.0
+  Pantalon -------> 400.0
+  Sandalias -------> 100.0
+  Tacones -------> 300.0
+  Tenis -------> 300.0
+Total M.N.$ : 30646.3
+
+    CLIENTE: 
+
+TOTAL DE ARTICULOS VENDIDOS = 14
+  Atendido por: Juan Carlos
+  2021/02/03 20:04:23
+
+DATOS DE ENVIO: 
+   Calle: 555
+   Colonia: 555
+   Codigo Postal: 555
+   Numero Telefonico: 555
+
+Fecha tentativa de entrega:31-Feb-2020
