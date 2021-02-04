@@ -1,5 +1,5 @@
-  ==== NombreTienda ====
-----------------------------
+==== ¡LOS TRES MOSQUETEROS! ====
+--------------------------------
 ARTICULO         PRECIO:
   Cereal -------> 40.1
   Manzanas -------> 29.9
@@ -21,4 +21,4 @@ Total M.N.$ : 30646.3
 
 TOTAL DE ARTICULOS VENDIDOS = 14
   Atendido por: Juan Carlos
-  2021/02/03 22:36:28
+  2021/02/03 22:47:52

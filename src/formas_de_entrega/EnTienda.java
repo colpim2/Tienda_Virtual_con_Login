@@ -68,7 +68,7 @@ public class EnTienda {
         try{
             FileWriter archivoOut = new FileWriter(archivoRecibo, false);
 
-            String texto = "  ==== NombreTienda ====\n----------------------------\n";
+            String texto = "==== ¡LOS TRES MOSQUETEROS! ====\n--------------------------------\n";
             texto += "ARTICULO         PRECIO:";
             for (int i = 0; i < productos.size(); i++)
                 texto += "\n  " +productos.get(i)+" -------> "+precios.get(i);
