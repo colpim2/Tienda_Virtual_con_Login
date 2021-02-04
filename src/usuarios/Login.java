@@ -166,6 +166,7 @@ public class Login {
             try {
                 File archivoUsuarios = new File("./src/usuarios/UsersInfo/DataBase.csv");
                 if (!verificarRegistro(archivoUsuarios)) {
+                    this.guardarDatos();
                     String infoUsuario = correo + "," + contrasena + "," + nombre + "," + calle + "," + noExterior + "," + noInterior + "," + noTarjeta + "," + cvv;
                     FileWriter fw = new FileWriter(archivoUsuarios,true);
                     BufferedWriter bw = new BufferedWriter(fw);

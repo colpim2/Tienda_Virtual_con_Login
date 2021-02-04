@@ -74,7 +74,6 @@ public class Prueba {
                         System.out.println("Usuario ya registrado, por favor, inicie sesión");
                         break;
                     }
-                    registro.guardarDatos();
                     if(registro.guardarInfo())
                         System.out.println("Su información ha sido registrada correctamente. Puede iniciar sesión.");
                     else
