@@ -59,6 +59,7 @@ public class Prueba {
                             break;
                         case 2:
                             ADomicilio domicilio = new ADomicilio();
+                            domicilio.ImprimirRecibo(admin.nombre,usuario.getCarrito(), usuario.getPrecios(),CantidadAPagar);
                             System.out.println("Fecha tentativa de entrega: " + domicilio.FechaDeEntrega());
                             System.out.println(domicilio.PaqueteRecibido());
                             break;

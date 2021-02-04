@@ -1,9 +1,10 @@
 package formas_de_entrega;
 
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 public class EnTienda {
@@ -19,7 +20,7 @@ public class EnTienda {
 
     /** Método para Generar los Archivos y Directorios Necesarios */
     private int GenerarArchivos(){
-        String pathRecibo = "./recibos/Recibo_"+ contador +".txt";
+        String pathRecibo = "./recibos/Recibo_Tienda_"+ contador +".txt";
 
         File directorioRecibo= new File("./recibos");
         File archivoRecibo = new File(pathRecibo);
@@ -29,6 +30,10 @@ public class EnTienda {
             if (directorioRecibo.mkdir())
                 try {
                     if (archivoRecibo.createNewFile()){
+                        return 0;
+                    }
+                    else{
+                        System.out.println("Sobreescribiendo Archivo");
                         return 0;
                     }
                 }catch (IOException ioe) {
@@ -45,29 +50,41 @@ public class EnTienda {
                 if (archivoRecibo.createNewFile()){
                     return 0;
                 }
+                else{
+                    System.out.println("Sobreescribiendo Archivo");
+                    return 0;
+                }
             }catch (IOException ioe) {
                 System.out.println("ERROR: No se pudo crear el archivo");
                 return 1;
             }
         }
-        return 1;
     }
 
     /** Método GuardarRecibo */
     private void GuardarRecibo(String nombre,List<String> productos,List<Float> precios,float CantidadAPagar){
-        String pathRecibo = "./recibos/Recibo_"+ contador +".txt";
+        String pathRecibo = "./recibos/Recibo_Tienda_"+ contador +".txt";
         File archivoRecibo= new File(pathRecibo);
         try{
-            FileWriter archivoOut = new FileWriter(archivoRecibo, true);
+            FileWriter archivoOut = new FileWriter(archivoRecibo, false);
 
-            String texto = "Atendido por: "+nombre+"\nProductos comprados:";
+            String texto = "  ==== NombreTienda ====\n----------------------------\n";
+            texto += "ARTICULO         PRECIO:";
             for (int i = 0; i < productos.size(); i++)
                 texto += "\n  " +productos.get(i)+" -------> "+precios.get(i);
-            texto += "\nTotal: "+CantidadAPagar;
+            texto += "\nTotal M.N.$ : " + CantidadAPagar+"\n";
 
-            char buffer[] = new char[texto.length()];
-            texto.getChars(0, texto.length(), buffer, 0);
-            archivoOut.write(buffer);
+            //Información Cliente
+            texto += "\n    CLIENTE: ";
+            texto += "\n\nTOTAL DE ARTICULOS VENDIDOS = " + productos.size()+ "\n  Atendido por: "+ nombre;
+
+            //Fecha actual
+            DateTimeFormatter FormatoFecha = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+            LocalDateTime now = LocalDateTime.now();
+            texto += "\n  " + FormatoFecha.format(now);
+
+            archivoOut.write(texto,0,texto.length());
+            archivoOut.flush();
             archivoOut.close();
         }
         catch (IOException ioException){
@@ -80,7 +97,7 @@ public class EnTienda {
         System.out.println("Generando su recibo ... espere un momento");
         if (this.GenerarArchivos()!=1){
             this.GuardarRecibo(nombre,productos,precios,CantidadAPagar);
-            System.out.println("Recibo: Recibo_" +contador +".txt generado");
+            System.out.println("Recibo: Recibo_Tienda_" +contador +".txt generado");
         }
     }
 
