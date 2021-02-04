@@ -7,7 +7,6 @@ import supermercado.departamentos.zapatos.*;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class UsuarioNormal {
     /** Atributos */
@@ -132,8 +131,7 @@ public class UsuarioNormal {
     /** Método Impresión de Datos */
     public String ImprimirDatos() {
         MetodoDePago imprimirMetodo = this.getMetodoDePago();
-        String Impresion = "Usuario: " + this.nombre + "\n" + imprimirMetodo.ImprimirMetodoDePago();
-        return Impresion;
+        return "Usuario: " + this.nombre + "\n" + imprimirMetodo.ImprimirMetodoDePago();
     }
 
     /** Getters */

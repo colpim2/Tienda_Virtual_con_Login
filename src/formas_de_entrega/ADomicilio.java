@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 
 public class ADomicilio {
     /** Atributos */
-    private Direccion direccion;
+    final Direccion direccion;
     private int contador = 0;
 
     /** Método Constructor */
@@ -27,7 +27,7 @@ public class ADomicilio {
 
     /** Método para Generar los Archivos y Directorios Necesarios */
     private int GenerarArchivos(String cliente){
-        String pathRecibo = "./recibos/Recibo_" +cliente + "_ADomicilio_"+ contador +".txt";;
+        String pathRecibo = "./recibos/Recibo_" +cliente + "_ADomicilio_"+ contador +".txt";
 
         File directorioRecibo= new File("./recibos");
         File archivoRecibo = new File(pathRecibo);

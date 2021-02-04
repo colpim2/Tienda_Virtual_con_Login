@@ -2,8 +2,8 @@ package usuarios;
 
 public class MetodoDePago {
     /** Atributos */
-    private String tarjeta;
-    private String cvv;
+    final String tarjeta;
+    final String cvv;
     private float dinero;
 
     /** Método Constructor */

@@ -2,13 +2,11 @@ package formas_de_entrega;
 
 import usuarios.UsuarioNormal;
 
-import java.util.Scanner;
-
 public class Direccion {
     /** Atributos */
-    private String calle;
-    private String noExterior;
-    private String noInterior;
+    final String calle;
+    final String noExterior;
+    final String noInterior;
 
     /** Método Constructor */
     public Direccion(UsuarioNormal usuario) {
