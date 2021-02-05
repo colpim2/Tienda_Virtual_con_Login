@@ -15,8 +15,6 @@ public class MetodoDePago {
 
         Random aleatorio = new Random();
         dinero = (aleatorio.nextFloat() * 40000 + 1000);
-        System.out.println(dinero);
-
     }
 
     /** Método Impresién Datos */
