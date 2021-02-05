@@ -15,17 +15,20 @@ public class Login {
     private String cvv;
     public static final String separador = ",";
 
+    /** Método Constructor sin argumentos: Utilizado para el Registro. */
     public Login(){
         Scanner teclado = new Scanner(System.in);
         System.out.print("Dirrección de correo electrónico: ");
         correo = teclado.nextLine();
     }
 
+    /**Método constructor con argumentos: Utilziado para Iniciar Sesión. */
     public Login(String correo, String password){
         this.correo = correo;
         contrasena = password;
     }
 
+    /** Método guardarDatos lee la información del usuario y la guarda para su registro */
     public void guardarDatos(){
         Scanner teclado = new Scanner(System.in);
         System.out.print("Password: ");
@@ -46,6 +49,7 @@ public class Login {
         cvv = teclado.nextLine();
     }
 
+    /**Método verificarRutas revisa si existe la carpeta y el archivo en donde se guarda la información de todos los clientes registrados */
     public boolean verificarRutas(){
         File directorioUsers = new File("./src/usuarios/UsersInfo");
         File archivoUsuarios = new File("./src/usuarios/UsersInfo/DataBase.csv");
@@ -89,12 +93,14 @@ public class Login {
         return true;
     }
 
+    /**Excepción propia del programa para verificar si los correos ingresados son validos o no*/
     public class correoInvalidoException extends Exception{
         public correoInvalidoException(){
             super("El formato del correo es invalido");
         }
     }
 
+    /** Método verificarLogin revisa si el usuario está registrado. Si lo está, carga la información del cliente desde el archivo */
     public boolean verificarLogin(File rutaArchivo){
         BufferedReader br = null;
         try{
@@ -131,6 +137,7 @@ public class Login {
         return false;
     }
 
+    /**Método verificarRegistro revisa, al momento de estar registrando a un nuevo usuario, si éste no está registrado previamente */
     public boolean verificarRegistro(File rutaArchivo){
         BufferedReader br = null;
         try{
@@ -159,6 +166,7 @@ public class Login {
         return false;
     }
 
+    /** Método iniciarSesión se encarga de invocar los métodos necesarios para el inicio de sesión */
     public boolean iniciarSesion(){
         try {
             if (!correo.contains("@"))
@@ -174,7 +182,15 @@ public class Login {
         return false;
     }
 
+    /** Método guardarInfo manipula la información del usuario para guardarla en el archivo con la información de los usuarios */
     public boolean guardarInfo(){
+        try{
+            if (!correo.contains("@"))
+                throw new correoInvalidoException();
+        }catch(correoInvalidoException inv){
+            System.out.println("El correo introducido es invalido");
+            return false;
+        }
         if(verificarRutas()) {
             try {
                 File archivoUsuarios = new File("./src/usuarios/UsersInfo/DataBase.csv");
@@ -197,6 +213,7 @@ public class Login {
         return true;
     }
 
+    /** Métodos getters para accesar a la información del usuario una vez que éste ha iniciado sesión */
     String getCorreo(){ return correo; }
 
     String getContrasena(){ return contrasena; }

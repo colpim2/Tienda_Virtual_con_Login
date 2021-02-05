@@ -4,9 +4,11 @@ import formas_de_entrega.*;
 
 import java.util.Scanner;
 
+/** Clase principal del Programa. */
 public class Prueba {
     public static void main(String[] args) {
         int opcion;
+        /** Se utiliza un ciclo do while para crear un menu para simular un Login */
         do {
             System.out.println("========= ¡LOS TRES MOSQUETEROS! =========");
             System.out.println("Bienvenido. Por favor, selecciona la opción que desea ejecutar");
@@ -65,7 +67,9 @@ public class Prueba {
                         } while (Opcion > 1 && Opcion < 2);
                         System.out.println("Gracias por comprar con nosotros");
                     }
-
+                    else{
+                        System.out.println("Lamentos que no haya podido realizar su compra, pero vuelva pronto. Lo estaremos esperando");
+                    }
                     break;
                 case 2:
                     System.out.println("======= REGISTRO =======");

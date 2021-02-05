@@ -10,14 +10,13 @@ import java.util.List;
 
 public class UsuarioNormal {
     /** Atributos */
-    private String correo;
-    private String contrasena;
-    private String nombre;
-    private String calle;
-    private String noExterior;
-    private String noInterior;
-    private String noTarjeta;
-    private String cvv;
+    private final String correo;
+    private final String nombre;
+    private final String calle;
+    private final String noExterior;
+    private final String noInterior;
+    private final String noTarjeta;
+    private final String cvv;
     private MetodoDePago metodoDePago;
     private List<String> carrito;
     private List<Float> precios;
@@ -25,7 +24,6 @@ public class UsuarioNormal {
     /** Método Constructor */
     public UsuarioNormal(Login login) {
         correo = login.getCorreo();
-        contrasena = login.getContrasena();
         nombre = login.getNombre();
         calle = login.getCalle();
         noExterior = login.getNoExterior();
@@ -164,24 +162,9 @@ public class UsuarioNormal {
         }
     }
 
-    /** Método Impresión Elementos En Carrito */
-    public void ImprimirElementosCarrito() {
-        //Generar excepción propia si el carrito está vacio
-        for (int i = 0; i < carrito.size(); i++)
-            System.out.println(carrito.get(i));
-    }
-
-    /** Método Impresión de Datos */
-    public String ImprimirDatos() {
-        MetodoDePago imprimirMetodo = this.getMetodoDePago();
-        return "Usuario: " + this.nombre + "\n" + imprimirMetodo.ImprimirMetodoDePago();
-    }
-
 
     /** Getters */
     public String getCorreo(){ return correo; }
-
-    public String getContrasena(){ return contrasena; }
 
     public String getNombre(){ return nombre; }
 
