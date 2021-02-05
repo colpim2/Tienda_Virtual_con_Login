@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Zoologico_Virtual.iml" filepath="$PROJECT_DIR$/Zoologico_Virtual.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Tienda_Virtual_con_Login.iml" filepath="$PROJECT_DIR$/Tienda_Virtual_con_Login.iml" />
     </modules>
   </component>
 </project>
