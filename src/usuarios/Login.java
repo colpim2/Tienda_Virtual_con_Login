@@ -22,7 +22,7 @@ public class Login {
         correo = teclado.nextLine();
     }
 
-    /**Método constructor con argumentos: Utilziado para Iniciar Sesión. */
+    /** Método constructor con argumentos: Utilziado para Iniciar Sesión. */
     public Login(String correo, String password){
         this.correo = correo;
         contrasena = password;
@@ -49,7 +49,7 @@ public class Login {
         cvv = teclado.nextLine();
     }
 
-    /**Método verificarRutas revisa si existe la carpeta y el archivo en donde se guarda la información de todos los clientes registrados */
+    /** Método verificarRutas revisa si existe la carpeta y el archivo en donde se guarda la información de todos los clientes registrados */
     public boolean verificarRutas(){
         File directorioUsers = new File("./src/usuarios/UsersInfo");
         File archivoUsuarios = new File("./src/usuarios/UsersInfo/DataBase.csv");
@@ -93,7 +93,7 @@ public class Login {
         return true;
     }
 
-    /**Excepción propia del programa para verificar si los correos ingresados son validos o no*/
+    /** Excepción propia del programa para verificar si los correos ingresados son validos o no */
     public class correoInvalidoException extends Exception{
         public correoInvalidoException(){
             super("El formato del correo es invalido");
@@ -201,7 +201,7 @@ public class Login {
                     PrintWriter textoSalida = new PrintWriter(bw);
                     textoSalida.println(infoUsuario);
                     textoSalida.close();
-                    System.out.println("Informacion registrada corrctamente");
+                    System.out.println("Informacion registrada correctamente");
                     return true;
                 }
             } catch(IOException io){

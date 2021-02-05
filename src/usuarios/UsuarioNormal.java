@@ -125,7 +125,7 @@ public class UsuarioNormal {
         }
     }
 
-    /** Excepción Propia Dinero Insuficiente**/
+    /** Excepción Propia Dinero Insuficiente */
     static class ExcepcionDineroInsuficiente extends Exception{
         private String detalle;
 
@@ -144,7 +144,7 @@ public class UsuarioNormal {
         }
     }
 
-    /** Excepción Propia Cantidad a Pagar = 0 **/
+    /** Excepción Propia Cantidad a Pagar = 0 */
     static class ExcepcionCantidadAPagar extends Exception{
         private String detalle;
 

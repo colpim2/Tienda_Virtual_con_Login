@@ -17,7 +17,7 @@ public class MetodoDePago {
         dinero = (aleatorio.nextFloat() * 40000 + 1000);
     }
 
-    /** Método Impresién Datos */
+    /** Método Impresión Datos */
     public String ImprimirMetodoDePago() {
         return "Método de pago\n   Tarjeta: " + this.getTarjeta() + "\n   CCV: " + this.getCVV();
     }
