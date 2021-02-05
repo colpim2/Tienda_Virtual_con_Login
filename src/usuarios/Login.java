@@ -188,7 +188,6 @@ public class Login {
             if (!correo.contains("@"))
                 throw new correoInvalidoException();
         }catch(correoInvalidoException inv){
-            System.out.println("El correo introducido es invalido");
             return false;
         }
         if(verificarRutas()) {
