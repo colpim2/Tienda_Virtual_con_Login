@@ -108,17 +108,60 @@ public class UsuarioNormal {
 
     /** Método Pagar */
     public boolean Pagar(float CantidadAPagar) {
-        //Generar excepción propia con el if
-        if (CantidadAPagar > 0) {
+        try{
+            ComprobarCantidadAPagar(CantidadAPagar);
             System.out.println("Pagando " + CantidadAPagar + " por " + carrito.size() + " productos");
             this.metodoDePago = new MetodoDePago(this.getNoTarjeta(),this.getCvv());
-            if (CantidadAPagar > metodoDePago.getDinero()) {
-                System.out.println("Dinero Insuficiente");
-                return false;
-            } else
+            try{
+                ComprobarDinero(CantidadAPagar, metodoDePago.getDinero());
                 return true;
-        } else
+            }
+            catch (ExcepcionDineroInsuficiente dineroInsuficiente){
+                System.out.println("Error: " + dineroInsuficiente);
+                return false;
+            }
+        }
+        catch (ExcepcionCantidadAPagar excepcionCantidadAPagar){
+            System.out.println("Error: " + excepcionCantidadAPagar);
             return false;
+        }
+    }
+
+    /** Excepción Propia Dinero Insuficiente**/
+    static class ExcepcionDineroInsuficiente extends Exception{
+        private String detalle;
+
+        ExcepcionDineroInsuficiente(float dinero){
+            detalle = String.valueOf(dinero);
+        }
+        public String toString() {
+            return "Dinero Insuficiente[" + detalle + "]";
+        }
+
+    }
+
+    void ComprobarDinero(float CantidadAPagar, float dinero) throws ExcepcionDineroInsuficiente {
+        if(CantidadAPagar > dinero) {
+            throw new ExcepcionDineroInsuficiente(dinero);
+        }
+    }
+
+    /** Excepción Propia Cantidad a Pagar = 0 **/
+    static class ExcepcionCantidadAPagar extends Exception{
+        private String detalle;
+
+        ExcepcionCantidadAPagar(float CantidadAPagar){
+            detalle = String.valueOf(CantidadAPagar);
+        }
+        public String toString() {
+            return "Cantidad a Pagar = " + detalle +"\n Lamentamos que no haya encontrado lo que buscaba";
+        }
+    }
+
+    void ComprobarCantidadAPagar(float CantidadAPagar) throws ExcepcionCantidadAPagar {
+        if(CantidadAPagar <= 0) {
+            throw new ExcepcionCantidadAPagar(CantidadAPagar);
+        }
     }
 
     /** Método Impresión Elementos En Carrito */
@@ -133,6 +176,7 @@ public class UsuarioNormal {
         MetodoDePago imprimirMetodo = this.getMetodoDePago();
         return "Usuario: " + this.nombre + "\n" + imprimirMetodo.ImprimirMetodoDePago();
     }
+
 
     /** Getters */
     public String getCorreo(){ return correo; }
