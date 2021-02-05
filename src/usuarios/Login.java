@@ -89,6 +89,12 @@ public class Login {
         return true;
     }
 
+    public class correoInvalidoException extends Exception{
+        public correoInvalidoException(){
+            super("El formato del correo es invalido");
+        }
+    }
+
     public boolean verificarLogin(File rutaArchivo){
         BufferedReader br = null;
         try{
@@ -154,9 +160,16 @@ public class Login {
     }
 
     public boolean iniciarSesion(){
-        if(verificarRutas()) {
-            File archivoUsuarios = new File("./src/usuarios/UsersInfo/DataBase.csv");
-            return verificarLogin(archivoUsuarios);
+        try {
+            if (!correo.contains("@"))
+                throw new correoInvalidoException();
+            if(verificarRutas()) {
+                File archivoUsuarios = new File("./src/usuarios/UsersInfo/DataBase.csv");
+                return verificarLogin(archivoUsuarios);
+            }
+        }catch(correoInvalidoException inv){
+            System.out.println("El correo introducido es invalido");
+            return false;
         }
         return false;
     }
